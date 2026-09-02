@@ -1,24 +1,57 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+import { AmbientBackground, CustomCursor, MouseLight } from "@/components/fx/Ambient";
+import { Preloader } from "@/components/fx/Preloader";
+import { Nav } from "@/components/sections/Nav";
+import { Hero } from "@/components/sections/Hero";
+import { About } from "@/components/sections/About";
+import { Experience } from "@/components/sections/Experience";
+import { Skills } from "@/components/sections/Skills";
+import { Projects } from "@/components/sections/Projects";
+import { Certifications } from "@/components/sections/Certifications";
+import { Contact } from "@/components/sections/Contact";
+import { Footer } from "@/components/sections/Footer";
+import { Toaster } from "@/components/ui/sonner";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+const TITLE = "Ramananda Chakraborty — CS Engineer & React Developer";
+const DESC =
+  "Futuristic portfolio of Ramananda Chakraborty, Computer Science Engineer building modern web experiences with React, and exploring AI and data-driven technologies.";
+
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: TITLE },
+      { name: "description", content: DESC },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: DESC },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
+  const [booted, setBooted] = useState(false);
+
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <>
+      <Preloader onDone={() => setBooted(true)} />
+      <AmbientBackground />
+      <MouseLight />
+      {booted && <CustomCursor />}
+      <Nav />
+      <main className="relative">
+        <Hero />
+        <About />
+        <Experience />
+        <Skills />
+        <Projects />
+        <Certifications />
+        <Contact />
+      </main>
+      <Footer />
+      <Toaster />
+    </>
   );
 }
