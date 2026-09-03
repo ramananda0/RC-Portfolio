@@ -39,7 +39,7 @@ export function About() {
     >
       <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
         <Reveal>
-          <TiltCard className="h-full p-7 sm:p-9" intensity={5}>
+          <TiltCard className="h-full p-4 sm:p-9" intensity={5}>
             <p className="label-hud">Identity_Record</p>
             <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
               I am{" "}
@@ -59,7 +59,7 @@ export function About() {
               a solid computer-science foundation and continuous learning.
             </p>
 
-            <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
+            <div className="mt-8 grid grid-cols-1 gap-3 min-[360px]:grid-cols-2 sm:grid-cols-4 sm:gap-4">
               {STATS.map((s) => (
                 <div key={s.label} className="rounded-lg border border-border bg-surface/40 p-3">
                   <Counter
@@ -78,7 +78,7 @@ export function About() {
         <div className="grid gap-6 sm:grid-cols-2">
           {MODULES.map((m, i) => (
             <Reveal key={m.title} delay={i * 0.08}>
-              <TiltCard className="h-full p-6">
+              <TiltCard className="h-full p-4 sm:p-6">
                 <span className="flex h-11 w-11 items-center justify-center rounded-lg border border-cyan/30 bg-cyan/10 text-cyan shadow-[var(--glow-cyan)]">
                   <m.icon className="h-5 w-5" />
                 </span>

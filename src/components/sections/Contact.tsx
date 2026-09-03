@@ -41,14 +41,14 @@ export function Contact() {
     >
       <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
         <Reveal>
-          <TiltCard className="p-0" intensity={3}>
-            <div className="flex items-center gap-2 border-b border-border px-5 py-3 font-mono text-[10px] tracking-[0.2em] text-muted-foreground">
+           <TiltCard className="p-0" intensity={3}>
+             <div className="flex min-w-0 items-center gap-2 border-b border-border px-4 py-3 font-mono text-[10px] tracking-[0.12em] text-muted-foreground sm:px-5 sm:tracking-[0.2em]">
               <span className="h-2.5 w-2.5 rounded-full bg-destructive/70" />
               <span className="h-2.5 w-2.5 rounded-full bg-chart-4/70" />
               <span className="h-2.5 w-2.5 rounded-full bg-cyan/70" />
-              <span className="ml-3">rc@core:~/contact</span>
+               <span className="ml-1 truncate sm:ml-3">rc@core:~/contact</span>
             </div>
-            <form onSubmit={onSubmit} className="space-y-5 p-6 sm:p-8">
+             <form onSubmit={onSubmit} className="space-y-5 p-4 sm:p-8">
               {FIELDS.map((f) => (
                 <div key={f.name}>
                   <label
@@ -83,7 +83,7 @@ export function Contact() {
               <button
                 type="submit"
                 disabled={sending}
-                className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-7 py-3.5 font-mono text-xs font-semibold uppercase tracking-[0.22em] text-primary-foreground shadow-[var(--glow-neon)] transition-all duration-300 hover:shadow-[0_0_45px_var(--neon)] disabled:opacity-60"
+                 className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-4 py-3.5 font-mono text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-primary-foreground shadow-[var(--glow-neon)] transition-all duration-300 hover:shadow-[0_0_45px_var(--neon)] disabled:opacity-60 sm:px-7 sm:text-xs sm:tracking-[0.22em]"
               >
                 <Send className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
                 {sending ? "Transmitting..." : "Send Transmission"}
@@ -94,18 +94,18 @@ export function Contact() {
 
         <div className="space-y-6">
           <Reveal delay={0.08}>
-            <TiltCard className="p-6" intensity={4}>
+             <TiltCard className="p-4 sm:p-6" intensity={4}>
               <p className="label-hud">System Channel</p>
               <div className="mt-4 space-y-3 font-mono text-xs">
-                <p className="flex items-center justify-between">
+                 <p className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-2">
                   <span className="text-muted-foreground">CONNECTION STATUS</span>
                   <span className="text-cyan">● READY</span>
                 </p>
-                <p className="flex items-center justify-between">
+                 <p className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-2">
                   <span className="text-muted-foreground">MESSAGE CHANNEL</span>
                   <span className="text-cyan">● ONLINE</span>
                 </p>
-                <p className="flex items-center justify-between">
+                 <p className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-2">
                   <span className="text-muted-foreground">LOCATION</span>
                   <span className="text-foreground/80">DHAKA, BD</span>
                 </p>
@@ -114,16 +114,16 @@ export function Contact() {
           </Reveal>
 
           <Reveal delay={0.16}>
-            <TiltCard className="p-6" intensity={4}>
+             <TiltCard className="p-4 sm:p-6" intensity={4}>
               <p className="label-hud">Direct Links</p>
               <a
                 href={`mailto:${PROFILE.email}`}
-                className="mt-4 flex items-center gap-3 rounded-lg border border-border bg-surface/40 px-4 py-3 text-sm transition-all hover:border-cyan hover:text-cyan"
+                 className="mt-4 flex min-w-0 items-center gap-3 overflow-hidden rounded-lg border border-border bg-surface/40 px-3 py-3 text-sm transition-all hover:border-cyan hover:text-cyan sm:px-4"
               >
                 <Mail className="h-4 w-4 text-cyan" />
-                {PROFILE.email}
+                 <span className="min-w-0 truncate">{PROFILE.email}</span>
               </a>
-              <div className="mt-4 grid grid-cols-2 gap-3">
+               <div className="mt-4 grid grid-cols-1 gap-3 min-[360px]:grid-cols-2">
                 {PROFILE.socials.map((s) => {
                   const Icon = ICONS[s.key as keyof typeof ICONS];
                   return (

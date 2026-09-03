@@ -9,14 +9,14 @@ function SkillNode({ label, i }: { label: string; i: number }) {
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
       transition={{ delay: i * 0.05, duration: 0.45 }}
-      className="group/node relative flex items-center gap-3 rounded-full border border-border bg-surface/50 py-2 pl-2 pr-4 transition-all duration-300 hover:border-cyan hover:shadow-[var(--glow-cyan)]"
+      className="group/node relative flex min-w-0 max-w-full items-center gap-3 rounded-full border border-border bg-surface/50 py-2 pl-2 pr-4 transition-all duration-300 hover:border-cyan hover:shadow-[var(--glow-cyan)]"
       data-cursor
     >
       <span className="relative flex h-7 w-7 shrink-0 items-center justify-center">
         <span className="absolute inset-0 rounded-full border border-cyan/40 transition-transform duration-500 group-hover/node:rotate-180" />
         <span className="h-2 w-2 rounded-full bg-cyan shadow-[var(--glow-cyan)] transition-transform duration-300 group-hover/node:scale-150" />
       </span>
-      <span className="text-sm text-foreground/85 transition-colors group-hover/node:text-cyan">
+      <span className="min-w-0 break-words text-sm text-foreground/85 transition-colors group-hover/node:text-cyan">
         {label}
       </span>
     </motion.div>
@@ -89,7 +89,7 @@ export function Skills() {
     >
       <div className="grid gap-8 lg:grid-cols-[340px_1fr]">
         <Reveal className="order-2 lg:order-1">
-          <TiltCard className="flex h-full flex-col justify-center p-6" intensity={4}>
+             <TiltCard className="flex h-full flex-col justify-center p-4 sm:p-6" intensity={4}>
             <OrbitCore />
             <div className="mt-6 space-y-2 font-mono text-[10px] text-muted-foreground">
               <p>› CAPABILITY_MATRIX_LOADED</p>
@@ -105,9 +105,9 @@ export function Skills() {
         <div className="order-1 grid gap-6 sm:grid-cols-2 lg:order-2">
           {SKILL_GROUPS.map((g, gi) => (
             <Reveal key={g.title} delay={gi * 0.08}>
-              <TiltCard className="h-full p-6" intensity={6}>
-                <div className="flex items-center justify-between">
-                  <h3 className="text-sm font-bold uppercase tracking-[0.18em] text-gradient">
+               <TiltCard className="h-full p-4 sm:p-6" intensity={6}>
+                 <div className="grid min-w-0 grid-cols-[minmax(0,1fr)_auto] items-center gap-2">
+                   <h3 className="min-w-0 break-words text-sm font-bold uppercase tracking-[0.12em] text-gradient sm:tracking-[0.18em]">
                     {g.title}
                   </h3>
                   <span className="font-mono text-[9px] tracking-[0.2em] text-muted-foreground">

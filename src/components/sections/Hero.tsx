@@ -32,7 +32,7 @@ function ProfileOrb() {
   }, [reduce]);
 
   return (
-    <div className="relative mx-auto w-full max-w-[420px]">
+    <div className="relative mx-auto min-w-0 w-full max-w-[420px]">
       <div className="animate-float" data-cursor>
         <div
           ref={wrapRef}
@@ -78,14 +78,14 @@ function ProfileOrb() {
       </div>
 
       {/* floating data panels */}
-      <div className="mt-6 grid grid-cols-3 gap-2 sm:absolute sm:-left-6 sm:top-4 sm:mt-0 sm:block sm:space-y-3 lg:-left-14">
+      <div className="mt-6 grid grid-cols-1 gap-2 min-[360px]:grid-cols-3 sm:absolute sm:-left-6 sm:top-4 sm:mt-0 sm:block sm:space-y-3 lg:-left-14">
         {HUD_PANELS.map((p, i) => (
           <motion.div
             key={p.k}
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 1 + i * 0.15, duration: 0.6 }}
-            className="glass-panel px-3 py-2 sm:w-[128px]"
+            className="glass-panel min-w-0 px-3 py-2 sm:w-[128px]"
           >
             <p className="label-hud text-[9px]">{p.k}</p>
             <p className="mt-0.5 font-mono text-[11px] text-foreground">{p.v}</p>
@@ -107,22 +107,22 @@ export function Hero() {
   const words = PROFILE.name.split(" ");
 
   return (
-    <section id="home" className="relative mx-auto flex min-h-screen w-full max-w-7xl items-center px-5 pb-16 pt-32 sm:px-8">
-      <div className="grid w-full items-center gap-14 lg:grid-cols-[1.1fr_0.9fr]">
-        <div>
+    <section id="home" className="relative mx-auto flex min-h-screen w-full max-w-7xl items-center overflow-hidden px-4 pb-16 pt-28 sm:px-8 sm:pt-32">
+      <div className="grid min-w-0 w-full grid-cols-[minmax(0,1fr)] items-center gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-14">
+        <div className="min-w-0">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35 }}
-            className="inline-flex items-center gap-3 rounded-full border border-border bg-surface/40 px-4 py-1.5 backdrop-blur-md"
+            className="inline-flex max-w-full items-center gap-2 rounded-full border border-border bg-surface/40 px-3 py-1.5 backdrop-blur-md sm:gap-3 sm:px-4"
           >
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-cyan" />
-            <span className="label-hud">System Profile // 2035</span>
+            <span className="label-hud whitespace-nowrap text-[0.55rem] min-[360px]:text-[0.65rem]">System Profile // 2035</span>
           </motion.div>
 
-          <h1 className="mt-6 text-[clamp(2.4rem,7.5vw,5.2rem)] font-black leading-[0.95] uppercase">
+          <h1 className="mt-6 min-w-0 text-[2rem] font-black leading-[0.98] uppercase min-[360px]:text-[2.35rem] sm:text-[clamp(2.8rem,7.5vw,5.2rem)]">
             {words.map((w, wi) => (
-              <span key={w} className="mr-4 inline-block whitespace-nowrap">
+              <span key={w} className="mr-2 inline-block whitespace-nowrap sm:mr-4">
                 {w.split("").map((c, ci) => (
                   <motion.span
                     key={`${w}-${ci}`}
@@ -142,8 +142,8 @@ export function Hero() {
             ))}
           </h1>
 
-          <div className="mt-4 flex h-9 items-center gap-3 overflow-hidden">
-            <span className="h-px w-8 bg-cyan/60" />
+          <div className="mt-4 grid h-9 min-w-0 grid-cols-[1.5rem_minmax(0,1fr)] items-center gap-2 overflow-hidden sm:grid-cols-[2rem_minmax(0,1fr)] sm:gap-3">
+            <span className="h-px w-full bg-cyan/60" />
             <AnimatePresence mode="wait">
               <motion.span
                 key={PROFILE.roles[roleIndex]}
@@ -151,7 +151,7 @@ export function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -18 }}
                 transition={{ duration: 0.45 }}
-                className="font-mono text-sm uppercase tracking-[0.25em] text-cyan sm:text-base"
+                className="truncate font-mono text-xs uppercase tracking-[0.14em] text-cyan min-[360px]:text-sm sm:text-base sm:tracking-[0.25em]"
               >
                 {PROFILE.roles[roleIndex]}
               </motion.span>
@@ -171,7 +171,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.25, duration: 0.7 }}
-            className="mt-9 flex flex-wrap items-center gap-3"
+            className="mt-8 grid items-center gap-3 min-[390px]:flex min-[390px]:flex-wrap"
           >
             <MagneticButton href="#projects" variant="solid">
               Explore My Work
@@ -188,7 +188,7 @@ export function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.5 }}
-            className="mt-9 flex items-center gap-3"
+            className="mt-8 flex min-w-0 flex-wrap items-center gap-3"
           >
             {PROFILE.socials.map((s) => {
               const Icon = ICONS[s.key as keyof typeof ICONS];
