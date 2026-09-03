@@ -57,9 +57,9 @@ function ParticleField() {
       }
       const max = w < 640 ? 90 : 130;
       for (let i = 0; i < pts.length; i++) {
+        const a = pts[i]!;
         for (let j = i + 1; j < pts.length; j++) {
-          const a = pts[i];
-          const b = pts[j];
+          const b = pts[j]!;
           const d = Math.hypot(a.x - b.x, a.y - b.y);
           if (d < max) {
             ctx.beginPath();
@@ -70,7 +70,6 @@ function ParticleField() {
             ctx.stroke();
           }
         }
-        const a = pts[i];
         const dm = Math.hypot(a.x - mouse.x, a.y - mouse.y);
         if (dm < 170) {
           ctx.beginPath();
