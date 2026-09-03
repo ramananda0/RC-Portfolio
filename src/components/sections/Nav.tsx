@@ -44,11 +44,11 @@ export function Nav() {
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-        className="fixed left-1/2 top-4 z-50 w-[min(1120px,calc(100%-1.5rem))] -translate-x-1/2"
+        className="fixed left-1/2 top-3 z-50 w-[calc(100%-1rem)] max-w-[1120px] -translate-x-1/2 sm:top-4 sm:w-[calc(100%-1.5rem)]"
       >
         <div
           className={cn(
-            "flex items-center justify-between rounded-full border border-border px-4 py-2.5 backdrop-blur-xl transition-all duration-500 sm:px-6",
+            "grid grid-cols-[minmax(0,1fr)_auto] items-center rounded-full border border-border px-4 py-2.5 backdrop-blur-xl transition-all duration-500 sm:px-6",
             scrolled
               ? "bg-surface/70 shadow-[0_10px_40px_-20px_var(--neon)]"
               : "bg-surface/35",
@@ -56,7 +56,7 @@ export function Nav() {
         >
           <button
             onClick={() => go("home")}
-            className="group flex items-center gap-2 font-display text-sm font-bold tracking-[0.2em]"
+            className="group flex min-w-0 items-center gap-2 font-display text-sm font-bold tracking-[0.2em]"
           >
             <span className="relative flex h-2 w-2">
               <span className="absolute inset-0 animate-ping rounded-full bg-cyan/70" />
@@ -90,7 +90,7 @@ export function Nav() {
             ))}
           </nav>
 
-          <div className="flex items-center gap-3">
+            className="flex shrink-0 items-center gap-3"
             <span className="hidden font-mono text-[10px] tracking-[0.2em] text-muted-foreground xl:inline">
               ● SYSTEM ONLINE
             </span>
@@ -112,7 +112,7 @@ export function Nav() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -16 }}
             transition={{ duration: 0.35 }}
-            className="fixed left-1/2 top-20 z-50 w-[min(1120px,calc(100%-1.5rem))] -translate-x-1/2 lg:hidden"
+            className="fixed left-1/2 top-20 z-50 w-[calc(100%-1rem)] max-w-[1120px] -translate-x-1/2 sm:w-[calc(100%-1.5rem)] lg:hidden"
           >
             <div className="glass-panel overflow-hidden p-2">
               {NAV_LINKS.map((l, i) => (

@@ -155,6 +155,12 @@
     -webkit-font-smoothing: antialiased;
   }
 
+  #root,
+  main {
+    min-width: 0;
+    max-width: 100%;
+  }
+
   h1,
   h2,
   h3,
@@ -371,5 +377,11 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+@media (max-width: 767px), (pointer: coarse) {
+  [data-custom-cursor] {
+    display: none !important;
   }
 }

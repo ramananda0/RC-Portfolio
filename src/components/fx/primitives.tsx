@@ -52,13 +52,13 @@ export function Section({
   className?: string;
 }) {
   return (
-    <section id={id} className={cn("relative mx-auto w-full max-w-7xl px-5 py-24 sm:px-8", className)}>
-      <Reveal className="mb-12">
-        <div className="flex items-center gap-3">
-          <span className="h-px w-10 bg-gradient-to-r from-transparent to-cyan" />
-          <span className="label-hud">{label}</span>
+    <section id={id} className={cn("relative mx-auto w-full max-w-7xl overflow-hidden px-4 py-16 sm:px-8 sm:py-24", className)}>
+      <Reveal className="mb-9 min-w-0 sm:mb-12">
+        <div className="grid min-w-0 grid-cols-[1.5rem_minmax(0,1fr)] items-center gap-2 sm:grid-cols-[2.5rem_minmax(0,1fr)] sm:gap-3">
+          <span className="h-px w-full bg-gradient-to-r from-transparent to-cyan" />
+          <span className="label-hud break-words text-[0.55rem] min-[360px]:text-[0.65rem]">{label}</span>
         </div>
-        <h2 className="mt-4 text-3xl font-bold uppercase tracking-wider sm:text-4xl lg:text-5xl">
+        <h2 className="mt-4 min-w-0 break-words text-2xl font-bold uppercase sm:text-4xl lg:text-5xl">
           {title}
         </h2>
         {subtitle && (
@@ -106,7 +106,7 @@ export function TiltCard({
       onMouseMove={onMove}
       onMouseLeave={onLeave}
       className={cn(
-        "glass-panel group relative overflow-hidden transition-[transform,box-shadow] duration-300 ease-out will-change-transform hover:shadow-[0_0_50px_-15px_var(--neon)]",
+        "glass-panel group relative min-w-0 overflow-hidden transition-[transform,box-shadow] duration-300 ease-out will-change-transform hover:shadow-[0_0_50px_-15px_var(--neon)]",
         className,
       )}
       style={{ ["--mx" as string]: "50%", ["--my" as string]: "50%" }}
@@ -154,7 +154,7 @@ export function MagneticButton({
       onMouseMove={onMove}
       onMouseLeave={onLeave}
       className={cn(
-        "relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full px-7 py-3 font-mono text-xs font-semibold uppercase tracking-[0.2em] transition-[transform,box-shadow,background-color] duration-300 ease-out",
+        "relative inline-flex min-w-0 items-center justify-center gap-2 overflow-hidden rounded-full px-5 py-3 font-mono text-[0.68rem] font-semibold uppercase tracking-[0.14em] transition-[transform,box-shadow,background-color] duration-300 ease-out sm:px-7 sm:text-xs sm:tracking-[0.2em]",
         variant === "solid" &&
           "bg-primary text-primary-foreground shadow-[var(--glow-neon)] hover:shadow-[0_0_40px_var(--neon)]",
         variant === "outline" &&

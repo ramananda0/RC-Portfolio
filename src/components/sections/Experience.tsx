@@ -6,17 +6,17 @@ import { cn } from "@/lib/utils";
 
 function Pipeline({ stages }: { stages: string[] }) {
   return (
-    <div className="mt-6 rounded-lg border border-border bg-surface/40 p-4">
+    <div className="mt-6 min-w-0 rounded-lg border border-border bg-surface/40 p-3 sm:p-4">
       <p className="label-hud mb-4">Data Flow</p>
-      <div className="flex flex-wrap items-center gap-2">
+      <div className="flex min-w-0 flex-wrap items-center gap-2">
         {stages.map((s, i) => (
-          <div key={s} className="flex items-center gap-2">
+          <div key={s} className="flex min-w-0 items-center gap-2">
             <motion.span
               initial={{ opacity: 0.35 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.15 }}
-              className="rounded-md border border-cyan/30 bg-cyan/5 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.15em] text-cyan"
+              className="max-w-full break-words rounded-md border border-cyan/30 bg-cyan/5 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.1em] text-cyan sm:tracking-[0.15em]"
             >
               {s}
             </motion.span>
@@ -50,7 +50,7 @@ export function Experience() {
     >
       <div className="grid gap-8 lg:grid-cols-[1fr_340px]">
         {/* timeline */}
-        <div className="relative pl-6 sm:pl-10">
+        <div className="relative min-w-0 pl-5 sm:pl-10">
           <span className="absolute left-1.5 top-2 h-full w-px bg-gradient-to-b from-cyan via-primary to-transparent sm:left-3" />
           {EXPERIENCE.map((x, i) => (
             <Reveal key={x.index} delay={i * 0.1} className="relative mb-10 last:mb-0">
@@ -69,13 +69,13 @@ export function Experience() {
                 />
               </span>
 
-              <TiltCard className="p-6 sm:p-7" intensity={5}>
-                <div className="flex flex-wrap items-start justify-between gap-3">
-                  <div>
+              <TiltCard className="p-4 sm:p-7" intensity={5}>
+                <div className="grid min-w-0 gap-3 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start">
+                  <div className="min-w-0">
                     <p className="font-mono text-[10px] tracking-[0.25em] text-muted-foreground">
                       RECORD_{x.index}
                     </p>
-                    <h3 className="mt-2 text-xl font-bold uppercase tracking-wide">{x.role}</h3>
+                    <h3 className="mt-2 break-words text-lg font-bold uppercase sm:text-xl">{x.role}</h3>
                     <p className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-cyan">
                       <span className="inline-flex items-center gap-1.5">
                         <Building2 className="h-3.5 w-3.5" /> {x.org}
@@ -120,7 +120,7 @@ export function Experience() {
                   </div>
                 </div>
 
-                <div className="mt-6 overflow-hidden rounded-lg border border-border bg-background/60 p-4 font-mono text-[10px] leading-relaxed text-cyan/80">
+                <div className="mt-6 overflow-hidden break-words rounded-lg border border-border bg-background/60 p-3 font-mono text-[10px] leading-relaxed text-cyan/80 sm:p-4">
                   {x.log.map((l) => (
                     <p key={l}>« {l} »</p>
                   ))}
@@ -132,9 +132,9 @@ export function Experience() {
           {/* next objective */}
           <Reveal className="relative">
             <span className="absolute -left-[1.35rem] top-5 h-3 w-3 rounded-full border border-plasma bg-background sm:-left-[2.1rem]" />
-            <div className="glass-panel flex items-center gap-3 p-5">
+            <div className="glass-panel flex min-w-0 items-center gap-3 p-4 sm:p-5">
               <ArrowRight className="h-4 w-4 text-plasma" />
-              <div>
+              <div className="min-w-0">
                 <p className="label-hud">Next Objective</p>
                 <p className="mt-1 font-display text-sm font-bold uppercase tracking-wider text-plasma">
                   Software Engineering

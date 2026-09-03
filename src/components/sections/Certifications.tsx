@@ -17,13 +17,13 @@ export function Certifications() {
       <div className="grid gap-6 lg:grid-cols-3">
         {CERTIFICATIONS.map((c, i) => (
           <Reveal key={i} delay={i * 0.08}>
-            <TiltCard className="h-full animate-float p-6" intensity={9}>
-              <div className="flex items-start justify-between">
+            <TiltCard className="h-full animate-float p-4 sm:p-6" intensity={9}>
+              <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-2">
                 <span className="flex h-11 w-11 items-center justify-center rounded-lg border border-plasma/30 bg-plasma/10 text-plasma shadow-[var(--glow-plasma)]">
                   <Award className="h-5 w-5" />
                 </span>
                 {c.placeholder && (
-                  <span className="rounded-full border border-border px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.18em] text-muted-foreground">
+                  <span className="rounded-full border border-border px-2 py-1 font-mono text-[8px] uppercase tracking-[0.1em] text-muted-foreground min-[360px]:text-[9px] min-[360px]:tracking-[0.18em]">
                     Placeholder
                   </span>
                 )}
@@ -63,13 +63,13 @@ export function Certifications() {
         {EDUCATION.map((e, i) => (
           <Reveal key={e.degree} delay={i * 0.1} className="relative mb-6 last:mb-0">
             <span className="absolute -left-[1.35rem] top-6 h-3 w-3 rounded-full bg-primary shadow-[var(--glow-neon)] sm:-left-[2.1rem]" />
-            <TiltCard className="p-6" intensity={4}>
-              <div className="flex flex-wrap items-start justify-between gap-3">
-                <div>
+            <TiltCard className="p-4 sm:p-6" intensity={4}>
+              <div className="grid min-w-0 gap-3 min-[400px]:grid-cols-[minmax(0,1fr)_auto] min-[400px]:items-start">
+                <div className="min-w-0">
                   <h3 className="text-base font-bold uppercase tracking-wide">{e.degree}</h3>
                   <p className="mt-1 text-sm text-muted-foreground">{e.school}</p>
                 </div>
-                <div className="text-right">
+                <div className="text-left min-[400px]:text-right">
                   <p className="font-mono text-[11px] tracking-[0.2em] text-cyan">{e.year}</p>
                   <p className="mt-1 font-mono text-[11px] text-foreground/80">{e.result}</p>
                 </div>

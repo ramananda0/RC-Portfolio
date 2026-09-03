@@ -6,7 +6,7 @@ import { MagneticButton, Reveal, Section, TiltCard } from "@/components/fx/primi
 
 function Card({ p, onOpen }: { p: Project; onOpen: () => void }) {
   return (
-    <TiltCard className="flex h-full flex-col p-6">
+    <TiltCard className="flex h-full flex-col p-4 sm:p-6">
       <div
         role="button"
         tabIndex={0}
@@ -119,7 +119,7 @@ export function Projects() {
               exit={{ opacity: 0, scale: 0.96, y: 16 }}
               transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
               onClick={(e) => e.stopPropagation()}
-              className="glass-panel relative w-full max-w-lg p-7"
+              className="glass-panel relative max-h-[calc(100dvh-2rem)] w-full max-w-lg overflow-y-auto p-5 sm:p-7"
             >
               <button
                 onClick={() => setActive(null)}
@@ -129,7 +129,7 @@ export function Projects() {
                 <X className="h-4 w-4" />
               </button>
               <p className="label-hud">Project_Record {active.index}</p>
-              <h3 className="mt-3 text-2xl font-bold uppercase tracking-wide text-gradient">
+               <h3 className="mt-3 break-words pr-8 text-xl font-bold uppercase text-gradient sm:text-2xl">
                 {active.title}
               </h3>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
