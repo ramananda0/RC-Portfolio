@@ -117,7 +117,8 @@ export function Hero() {
             className="inline-flex max-w-full items-center gap-2 rounded-full border border-border bg-surface/40 px-3 py-1.5 backdrop-blur-md sm:gap-3 sm:px-4"
           >
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-cyan" />
-            <span className="label-hud whitespace-nowrap text-[0.55rem] min-[360px]:text-[0.65rem]">System Profile // 2035</span>
+            <span className="label-hud whitespace-nowrap text-[0.55rem] min-[360px]:text-[0.65rem]">SYSTEM PROFILE
+</span>
           </motion.div>
 
           <h1 className="mt-6 min-w-0 text-[2rem] font-black leading-[0.98] uppercase min-[360px]:text-[2.35rem] sm:text-[clamp(2.8rem,7.5vw,5.2rem)]">
