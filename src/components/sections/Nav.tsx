@@ -64,7 +64,7 @@ export function Nav() {
             </span>
             <span className="text-gradient">RC</span>
             <span className="hidden font-mono text-[10px] tracking-[0.25em] text-muted-foreground sm:inline">
-              /CORE
+
             </span>
           </button>
 
