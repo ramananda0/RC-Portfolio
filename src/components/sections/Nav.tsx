@@ -90,7 +90,7 @@ export function Nav() {
             ))}
           </nav>
 
-            className="flex shrink-0 items-center gap-3"
+          <div className="flex shrink-0 items-center gap-3">
             <span className="hidden font-mono text-[10px] tracking-[0.2em] text-muted-foreground xl:inline">
               ● SYSTEM ONLINE
             </span>
