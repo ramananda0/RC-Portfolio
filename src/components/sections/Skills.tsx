@@ -25,7 +25,7 @@ import {
   SiScikitlearn,
   SiTailwindcss,
 } from "react-icons/si";
-import { TbApi, TbChartDots3, TbCube3D } from "react-icons/tb";
+import { TbApi, TbChartDots3, TbCube } from "react-icons/tb";
 import { SKILL_GROUPS } from "@/data/portfolio";
 import { Reveal, Section, TiltCard } from "@/components/fx/primitives";
 
@@ -46,7 +46,7 @@ const SKILL_ICONS: Record<string, IconType> = {
   Matplotlib: LuChartSpline,
   Seaborn: TbChartDots3,
   "Scikit-learn": SiScikitlearn,
-  "Object-Oriented Programming": TbCube3D,
+  "Object-Oriented Programming": TbCube,
   "Data Structures & Algorithms": LuWorkflow,
   "Operating Systems": LuCpu,
   "Computer Architecture": LuDatabase,
