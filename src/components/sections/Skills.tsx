@@ -1,8 +1,64 @@
 import { motion } from "framer-motion";
+import type { IconType } from "react-icons";
+import { FaCss3Alt } from "react-icons/fa6";
+import {
+  LuBinary,
+  LuBrainCircuit,
+  LuBraces,
+  LuChartSpline,
+  LuCpu,
+  LuDatabase,
+  LuNetwork,
+  LuWorkflow,
+} from "react-icons/lu";
+import {
+  SiBootstrap,
+  SiFirebase,
+  SiHtml5,
+  SiJavascript,
+  SiMysql,
+  SiNodedotjs,
+  SiNumpy,
+  SiPandas,
+  SiPython,
+  SiReact,
+  SiScikitlearn,
+  SiTailwindcss,
+} from "react-icons/si";
+import { TbApi, TbChartDots3, TbCube3D } from "react-icons/tb";
 import { SKILL_GROUPS } from "@/data/portfolio";
 import { Reveal, Section, TiltCard } from "@/components/fx/primitives";
 
+const SKILL_ICONS: Record<string, IconType> = {
+  HTML5: SiHtml5,
+  CSS3: FaCss3Alt,
+  "JavaScript ES6+": SiJavascript,
+  "React.js": SiReact,
+  "Tailwind CSS": SiTailwindcss,
+  Bootstrap: SiBootstrap,
+  SQL: SiMysql,
+  "REST APIs": TbApi,
+  Firebase: SiFirebase,
+  "Node.js (familiarity)": SiNodedotjs,
+  Python: SiPython,
+  NumPy: SiNumpy,
+  Pandas: SiPandas,
+  Matplotlib: LuChartSpline,
+  Seaborn: TbChartDots3,
+  "Scikit-learn": SiScikitlearn,
+  "Object-Oriented Programming": TbCube3D,
+  "Data Structures & Algorithms": LuWorkflow,
+  "Operating Systems": LuCpu,
+  "Computer Architecture": LuDatabase,
+  "Computer Networking": LuNetwork,
+  "Artificial Intelligence": LuBrainCircuit,
+  "Compiler Design": LuBraces,
+  "Digital Systems": LuBinary,
+};
+
 function SkillNode({ label, i }: { label: string; i: number }) {
+  const Icon = SKILL_ICONS[label] ?? LuCpu;
+
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.9 }}
@@ -12,9 +68,11 @@ function SkillNode({ label, i }: { label: string; i: number }) {
       className="group/node relative flex min-w-0 max-w-full items-center gap-3 rounded-full border border-border bg-surface/50 py-2 pl-2 pr-4 transition-all duration-300 hover:border-cyan hover:shadow-[var(--glow-cyan)]"
       data-cursor
     >
-      <span className="relative flex h-7 w-7 shrink-0 items-center justify-center">
-        <span className="absolute inset-0 rounded-full border border-cyan/40 transition-transform duration-500 group-hover/node:rotate-180" />
-        <span className="h-2 w-2 rounded-full bg-cyan shadow-[var(--glow-cyan)] transition-transform duration-300 group-hover/node:scale-150" />
+      <span className="relative flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-cyan/35 bg-background/60 text-cyan shadow-[inset_0_0_10px_var(--surface-2)] transition-all duration-300 group-hover/node:border-cyan group-hover/node:shadow-[var(--glow-cyan)]">
+        <Icon
+          aria-hidden
+          className="h-4 w-4 transition-transform duration-300 group-hover/node:scale-110"
+        />
       </span>
       <span className="min-w-0 break-words text-sm text-foreground/85 transition-colors group-hover/node:text-cyan">
         {label}
