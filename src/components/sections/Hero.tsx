@@ -1,6 +1,6 @@
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { ArrowDown, Download, Facebook, Github, Instagram, Linkedin, Mail } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import profileAsset from "@/assets/profile.jpeg.asset.json";
 import { PROFILE } from "@/data/portfolio";
 import { MagneticButton } from "@/components/fx/primitives";
@@ -14,29 +14,11 @@ const HUD_PANELS = [
 ];
 
 function ProfileOrb() {
-  const wrapRef = useRef<HTMLDivElement>(null);
-  const reduce = useReducedMotion();
-
-  useEffect(() => {
-    if (reduce || window.matchMedia("(pointer: coarse)").matches) return;
-    const onMove = (e: MouseEvent) => {
-      const el = wrapRef.current;
-      if (!el) return;
-      const r = el.getBoundingClientRect();
-      const px = (e.clientX - (r.left + r.width / 2)) / r.width;
-      const py = (e.clientY - (r.top + r.height / 2)) / r.height;
-      el.style.transform = `perspective(1000px) rotateY(${px * 12}deg) rotateX(${-py * 12}deg)`;
-    };
-    window.addEventListener("mousemove", onMove);
-    return () => window.removeEventListener("mousemove", onMove);
-  }, [reduce]);
-
   return (
-    <div className="relative mx-auto min-w-0 w-full max-w-[420px]">
+    <div className="group relative mx-auto min-w-0 w-full max-w-[420px]">
       <div className="animate-float" data-cursor>
         <div
-          ref={wrapRef}
-          className="relative aspect-square w-full transition-transform duration-300 ease-out will-change-transform"
+          className="relative aspect-square w-full transition-transform duration-500 ease-out will-change-transform hover:scale-[1.03]"
         >
           {/* rotating HUD rings */}
           <span className="absolute inset-0 animate-spin-slow rounded-full border border-dashed border-cyan/35" />
