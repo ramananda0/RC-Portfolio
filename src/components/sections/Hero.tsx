@@ -154,7 +154,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.25, duration: 0.7 }}
-            className="mt-8 grid items-center gap-3 min-[390px]:flex min-[390px]:flex-wrap"
+            className="mt-8 flex flex-wrap items-center gap-3"
           >
             <MagneticButton href="#projects" variant="solid">
               Explore My Work
@@ -162,7 +162,7 @@ export function Hero() {
             <MagneticButton href="#contact" variant="outline">
               <Mail className="h-3.5 w-3.5" /> Contact Me
             </MagneticButton>
-            <MagneticButton href={PROFILE.resumeUrl} variant="ghost" download>
+            <MagneticButton href={PROFILE.resumeUrl} variant="accent" download className="ms-auto">
               <Download className="h-3.5 w-3.5" /> Download Resume
             </MagneticButton>
           </motion.div>
