@@ -1,6 +1,6 @@
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { ArrowDown, Download, Facebook, Github, Instagram, Linkedin, Mail } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import profileAsset from "@/assets/profile.jpeg.asset.json";
 import { PROFILE } from "@/data/portfolio";
 import { MagneticButton } from "@/components/fx/primitives";
