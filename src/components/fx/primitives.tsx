@@ -134,7 +134,7 @@ export function MagneticButton({
   variant = "solid",
   className,
   ...props
-}: ComponentProps<"a"> & { variant?: "solid" | "outline" | "ghost" }) {
+}: ComponentProps<"a"> & { variant?: "solid" | "outline" | "ghost" | "accent" }) {
   const ref = useRef<HTMLAnchorElement>(null);
   const reduce = useReducedMotion();
 
@@ -160,6 +160,8 @@ export function MagneticButton({
         variant === "outline" &&
           "border border-border bg-surface/40 text-foreground backdrop-blur-md hover:border-cyan hover:text-cyan hover:shadow-[var(--glow-cyan)]",
         variant === "ghost" && "text-muted-foreground hover:text-cyan",
+        variant === "accent" &&
+          "border border-blossom/50 bg-blossom/10 text-blossom backdrop-blur-md hover:bg-blossom/20 hover:shadow-[var(--glow-blossom)]",
         className,
       )}
       {...props}
