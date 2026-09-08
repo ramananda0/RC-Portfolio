@@ -165,7 +165,7 @@ export function Hero() {
                 <Mail className="h-3.5 w-3.5" /> Contact Me
               </MagneticButton>
             </div>
-            <MagneticButton href={PROFILE.resumeUrl} variant="accent" download className="lg:ms-auto">
+            <MagneticButton href={resumeAsset.url} variant="accent" download="Ramananda_Chakraborty_CV.pdf" className="lg:ms-auto">
               <Download className="h-3.5 w-3.5" /> Download Resume
             </MagneticButton>
           </motion.div>
