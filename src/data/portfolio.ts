@@ -217,30 +217,93 @@ export const EDUCATION = [
   },
 ];
 
-// PLACEHOLDER data — replace with real certifications and credential links.
-export const CERTIFICATIONS = [
+import bitm from "@/assets/certs/bitm.jpg.asset.json";
+import icip from "@/assets/certs/icip.png.asset.json";
+import reactNative from "@/assets/certs/react-native.png.asset.json";
+import python365 from "@/assets/certs/python.pdf.asset.json";
+import sql365 from "@/assets/certs/sql.pdf.asset.json";
+import agile from "@/assets/certs/agile.pdf.asset.json";
+import leadership from "@/assets/certs/leadership.pdf.asset.json";
+import cyberBadge from "@/assets/certs/cyber-badge.pdf.asset.json";
+import cyberCourse from "@/assets/certs/cyber-course.pdf.asset.json";
+
+export type Certification = {
+  title: string;
+  issuer: string;
+  date: string;
+  file: string;
+  kind: "image" | "pdf";
+  credential?: string;
+};
+
+export const CERTIFICATIONS: Certification[] = [
   {
-    title: "Certification Title",
-    issuer: "Issuing Organization",
-    date: "YYYY",
-    credential: "",
-    placeholder: true,
+    title: "Data Science & Machine Learning using Python",
+    issuer: "BITM — BASIS Institute of Technology & Management",
+    date: "Dec 2025 — Feb 2026 · 66 Hours",
+    file: bitm.url,
+    kind: "image",
   },
   {
-    title: "Certification Title",
-    issuer: "Issuing Organization",
-    date: "YYYY",
-    credential: "",
-    placeholder: true,
+    title: "React Native",
+    issuer: "Meta — via Coursera",
+    date: "Nov 2024",
+    file: reactNative.url,
+    kind: "image",
+    credential: "https://coursera.org/verify/CY7LUYZ1MYU2",
   },
   {
-    title: "Certification Title",
-    issuer: "Issuing Organization",
-    date: "YYYY",
-    credential: "",
-    placeholder: true,
+    title: "Introduction to Critical Infrastructure Protection",
+    issuer: "OPSWAT Academy",
+    date: "Jun 2025",
+    file: icip.url,
+    kind: "image",
+    credential: "https://learn.opswatacademy.com/certificate/5ym3LHnfhQ",
+  },
+  {
+    title: "Introduction to Python",
+    issuer: "365 Data Science",
+    date: "Mar 2026",
+    file: python365.url,
+    kind: "pdf",
+  },
+  {
+    title: "SQL",
+    issuer: "365 Data Science",
+    date: "Mar 2026",
+    file: sql365.url,
+    kind: "pdf",
+  },
+  {
+    title: "Introduction to Cybersecurity",
+    issuer: "Cisco Networking Academy",
+    date: "Nov 2025",
+    file: cyberBadge.url,
+    kind: "pdf",
+  },
+  {
+    title: "Cybersecurity — Course Completion",
+    issuer: "Cisco Networking Academy",
+    date: "Nov 2025",
+    file: cyberCourse.url,
+    kind: "pdf",
+  },
+  {
+    title: "Agile Project Management",
+    issuer: "HP LIFE — HP Foundation",
+    date: "Sep 2025",
+    file: agile.url,
+    kind: "pdf",
+  },
+  {
+    title: "Effective Leadership",
+    issuer: "HP LIFE — HP Foundation",
+    date: "Jun 2025",
+    file: leadership.url,
+    kind: "pdf",
   },
 ];
+
 
 export const STORY_LINES = [
   "Ramananda began his professional journey in May 2026 as a Data Annotation Analyst at Rooya Bangladesh, where he gained practical experience in structured data workflows, quality-focused processes, analytical thinking, accuracy, and professional collaboration.",
