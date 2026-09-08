@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ArrowDown, Download, Facebook, Github, Instagram, Linkedin, Mail } from "lucide-react";
 import { useEffect, useState } from "react";
 import profileAsset from "@/assets/profile.jpeg.asset.json";
+import resumeAsset from "@/assets/Ramananda_Chakraborty_CV.pdf.asset.json";
 import { PROFILE } from "@/data/portfolio";
 import { MagneticButton } from "@/components/fx/primitives";
 
