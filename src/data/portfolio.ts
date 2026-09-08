@@ -10,14 +10,13 @@ export const PROFILE = {
     "AI Enthusiast",
     "Creative Technologist",
   ],
-  // PLACEHOLDER: replace with real URLs when available
   socials: [
-    { label: "GitHub", href: "#", key: "github" },
-    { label: "LinkedIn", href: "#", key: "linkedin" },
-    { label: "Facebook", href: "#", key: "facebook" },
-    { label: "Instagram", href: "#", key: "instagram" },
+    { label: "GitHub", href: "https://github.com/ramananda0", key: "github" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/ramananda-chakraborty/", key: "linkedin" },
+    { label: "Facebook", href: "https://www.facebook.com/share/1BmUCKjd7u/", key: "facebook" },
+    { label: "Instagram", href: "https://www.facebook.com/share/1BmUCKjd7u/", key: "instagram" },
   ],
-  email: "your.email@example.com", // PLACEHOLDER
+  email: "ramananda.chakraborty0@gmail.com",
   resumeUrl: "#", // PLACEHOLDER: upload resume PDF and link it here
 };
 
