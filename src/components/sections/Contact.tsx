@@ -140,9 +140,6 @@ export function Contact() {
                   );
                 })}
               </div>
-              <p className="mt-4 font-mono text-[10px] text-muted-foreground/60">
-                // placeholder links & email — replace with real values
-              </p>
             </TiltCard>
           </Reveal>
         </div>
