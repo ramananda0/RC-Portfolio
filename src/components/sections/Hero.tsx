@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ArrowDown, Download, Facebook, Github, Instagram, Linkedin, Mail } from "lucide-react";
 import { useEffect, useState } from "react";
 import profileAsset from "@/assets/profile.jpeg.asset.json";
+import resumeAsset from "@/assets/Ramananda_Chakraborty_CV.pdf.asset.json";
 import { PROFILE } from "@/data/portfolio";
 import { MagneticButton } from "@/components/fx/primitives";
 
@@ -164,7 +165,7 @@ export function Hero() {
                 <Mail className="h-3.5 w-3.5" /> Contact Me
               </MagneticButton>
             </div>
-            <MagneticButton href={PROFILE.resumeUrl} variant="accent" download className="lg:ms-auto">
+            <MagneticButton href={resumeAsset.url} variant="accent" download="Ramananda_Chakraborty_CV.pdf" className="lg:ms-auto">
               <Download className="h-3.5 w-3.5" /> Download Resume
             </MagneticButton>
           </motion.div>
