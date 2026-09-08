@@ -1,8 +1,11 @@
-import { Award, ExternalLink, GraduationCap } from "lucide-react";
-import { CERTIFICATIONS, EDUCATION } from "@/data/portfolio";
+import { useState } from "react";
+import { Award, ExternalLink, GraduationCap, X, Eye } from "lucide-react";
+import { CERTIFICATIONS, EDUCATION, type Certification } from "@/data/portfolio";
 import { Reveal, Section, TiltCard } from "@/components/fx/primitives";
 
 export function Certifications() {
+  const [active, setActive] = useState<Certification | null>(null);
+
   return (
     <Section
       id="certifications"
@@ -12,43 +15,110 @@ export function Certifications() {
           Certifications & <span className="text-gradient">Academic Foundation</span>
         </>
       }
-      subtitle="Verified academic record, plus credential slots ready for real certifications."
+      subtitle="Click any certification title to preview the original certificate."
     >
       <div className="grid gap-6 lg:grid-cols-3">
         {CERTIFICATIONS.map((c, i) => (
-          <Reveal key={i} delay={i * 0.08}>
-            <TiltCard className="h-full animate-float p-4 sm:p-6" intensity={9}>
+          <Reveal key={c.title} delay={i * 0.06}>
+            <TiltCard className="h-full p-4 sm:p-6" intensity={9}>
               <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-2">
                 <span className="flex h-11 w-11 items-center justify-center rounded-lg border border-plasma/30 bg-plasma/10 text-plasma shadow-[var(--glow-plasma)]">
                   <Award className="h-5 w-5" />
                 </span>
-                {c.placeholder && (
-                  <span className="rounded-full border border-border px-2 py-1 font-mono text-[8px] uppercase tracking-[0.1em] text-muted-foreground min-[360px]:text-[9px] min-[360px]:tracking-[0.18em]">
-                    Placeholder
-                  </span>
-                )}
+                <span className="rounded-full border border-border px-2 py-1 font-mono text-[8px] uppercase tracking-[0.1em] text-muted-foreground min-[360px]:text-[9px] min-[360px]:tracking-[0.18em]">
+                  {c.kind === "pdf" ? "PDF" : "JPG"}
+                </span>
               </div>
-              <h3 className="mt-4 text-base font-semibold uppercase tracking-wider">{c.title}</h3>
+              <button
+                type="button"
+                onClick={() => setActive(c)}
+                className="mt-4 block w-full text-left text-base font-semibold uppercase tracking-wider transition-colors hover:text-cyan"
+              >
+                {c.title}
+              </button>
               <p className="mt-1 text-sm text-muted-foreground">{c.issuer}</p>
               <p className="mt-3 font-mono text-[10px] tracking-[0.2em] text-cyan">{c.date}</p>
-              {c.credential ? (
-                <a
-                  href={c.credential}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="mt-4 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-cyan hover:underline"
+              <div className="mt-4 flex flex-wrap items-center gap-4">
+                <button
+                  type="button"
+                  onClick={() => setActive(c)}
+                  className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-cyan hover:underline"
                 >
-                  <ExternalLink className="h-3 w-3" /> View Credential
-                </a>
-              ) : (
-                <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground/60">
-                  Credential link pending
-                </p>
-              )}
+                  <Eye className="h-3 w-3" /> Preview
+                </button>
+                {c.credential && (
+                  <a
+                    href={c.credential}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground hover:text-cyan hover:underline"
+                  >
+                    <ExternalLink className="h-3 w-3" /> Verify
+                  </a>
+                )}
+              </div>
             </TiltCard>
           </Reveal>
         ))}
       </div>
+
+      {active && (
+        <div
+          className="fixed inset-0 z-[80] flex items-center justify-center bg-background/85 p-3 backdrop-blur-md sm:p-6"
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${active.title} certificate preview`}
+          onClick={() => setActive(null)}
+        >
+          <div
+            className="glass-panel relative flex max-h-[92vh] w-full max-w-4xl flex-col overflow-hidden p-3 sm:p-5"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-3">
+              <div className="min-w-0">
+                <h3 className="truncate text-sm font-bold uppercase tracking-wider sm:text-base">
+                  {active.title}
+                </h3>
+                <p className="mt-1 truncate text-xs text-muted-foreground">{active.issuer}</p>
+              </div>
+              <button
+                type="button"
+                onClick={() => setActive(null)}
+                aria-label="Close preview"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:border-cyan hover:text-cyan"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            </div>
+
+            <div className="mt-4 min-h-0 flex-1 overflow-auto rounded-lg border border-border bg-surface/40">
+              {active.kind === "image" ? (
+                <img
+                  src={active.file}
+                  alt={`${active.title} certificate issued by ${active.issuer}`}
+                  className="h-auto w-full"
+                  loading="lazy"
+                />
+              ) : (
+                <iframe
+                  src={active.file}
+                  title={`${active.title} certificate`}
+                  className="h-[70vh] w-full"
+                />
+              )}
+            </div>
+
+            <a
+              href={active.file}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-3 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-cyan hover:underline"
+            >
+              <ExternalLink className="h-3 w-3" /> Open in new tab
+            </a>
+          </div>
+        </div>
+      )}
 
       <Reveal className="mt-16">
         <div className="flex items-center gap-3">
