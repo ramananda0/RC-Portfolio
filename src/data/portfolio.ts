@@ -14,7 +14,7 @@ export const PROFILE = {
     { label: "GitHub", href: "https://github.com/ramananda0", key: "github" },
     { label: "LinkedIn", href: "https://www.linkedin.com/in/ramananda-chakraborty/", key: "linkedin" },
     { label: "Facebook", href: "https://www.facebook.com/share/1BmUCKjd7u/", key: "facebook" },
-    { label: "Instagram", href: "https://www.facebook.com/share/1BmUCKjd7u/", key: "instagram" },
+    { label: "Instagram", href: "https://www.instagram.com/rc_pritom?stkn=OTZycXFhNHRjNXY2", key: "instagram" },
   ],
   email: "ramananda.chakraborty0@gmail.com",
   resumeUrl: "#", // PLACEHOLDER: upload resume PDF and link it here
