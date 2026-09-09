@@ -61,7 +61,7 @@ function ProfileOrb() {
       </div>
 
       {/* floating data panels */}
-      <div className="mt-6 grid grid-cols-1 gap-2 min-[360px]:grid-cols-3 sm:absolute sm:-left-6 sm:top-4 sm:mt-0 sm:block sm:space-y-3 lg:-left-14">
+      <div className="mt-6 grid grid-cols-1 gap-2 min-[360px]:grid-cols-3 sm:absolute sm:-left-6 sm:top-4 sm:mt-0 sm:block sm:space-y-3 lg:-right-14 lg:left-auto">
         {HUD_PANELS.map((p, i) => (
           <motion.div
             key={p.k}
