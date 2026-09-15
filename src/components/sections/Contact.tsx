@@ -16,14 +16,20 @@ export function Contact() {
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const name = String(formData.get("name") ?? "").trim();
+    const email = String(formData.get("email") ?? "").trim();
+    const message = String(formData.get("message") ?? "").trim();
+
     setSending(true);
-    setTimeout(() => {
-      setSending(false);
-      toast.success("TRANSMISSION QUEUED", {
-        description: "Connect a mail service to deliver messages to a real inbox.",
-      });
-      e.currentTarget?.reset?.();
-    }, 900);
+    const subject = `Portfolio contact from ${name}`;
+    const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+    window.location.href = `mailto:${PROFILE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    setSending(false);
+    toast.success("TRANSMISSION READY", {
+      description: "Your email app opened with the message addressed to Ramananda.",
+    });
+    e.currentTarget.reset();
   };
 
   return (
@@ -118,10 +124,23 @@ export function Contact() {
               <p className="label-hud">Direct Links</p>
               <a
                 href={`mailto:${PROFILE.email}`}
+                onClick={() => {
+                  toast.info("Opening email composer", {
+                    description: "If no email app opens, use the Gmail compose option below.",
+                  });
+                }}
                  className="mt-4 flex min-w-0 items-center gap-3 overflow-hidden rounded-lg border border-border bg-surface/40 px-3 py-3 text-sm transition-all hover:border-cyan hover:text-cyan sm:px-4"
               >
                 <Mail className="h-4 w-4 text-cyan" />
                  <span className="min-w-0 truncate">{PROFILE.email}</span>
+              </a>
+              <a
+                href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(PROFILE.email)}`}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-3 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground transition-colors hover:text-cyan"
+              >
+                <Mail className="h-3 w-3" /> Open Gmail composer
               </a>
                <div className="mt-4 grid grid-cols-1 gap-3 min-[360px]:grid-cols-2">
                 {PROFILE.socials.map((s) => {

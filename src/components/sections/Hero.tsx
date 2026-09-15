@@ -1,8 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowDown, Download, Facebook, Github, Instagram, Linkedin, Mail } from "lucide-react";
 import { useEffect, useState } from "react";
-import profileAsset from "@/assets/profile.jpeg.asset.json";
-import resumeAsset from "@/assets/Ramananda_Chakraborty_CV.pdf.asset.json";
 import { PROFILE } from "@/data/portfolio";
 import { MagneticButton } from "@/components/fx/primitives";
 
@@ -41,10 +39,14 @@ function ProfileOrb() {
           {/* frame */}
           <div className="absolute inset-[9%] overflow-hidden rounded-full border border-border bg-surface shadow-[0_0_60px_-15px_var(--neon)]">
             <img
-              src={profileAsset.url}
+              src="/Profile.jpeg"
               alt="Portrait of Ramananda Chakraborty, Computer Science Engineer"
               className="h-full w-full object-cover object-top"
               loading="eager"
+              onError={(event) => {
+                event.currentTarget.onerror = null;
+                event.currentTarget.src = "/profile-placeholder.svg";
+              }}
             />
             <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/50 via-transparent to-primary/10" />
             <span className="pointer-events-none absolute inset-x-0 top-0 h-1/3 animate-sweep bg-gradient-to-b from-transparent via-cyan/25 to-transparent" />
@@ -165,7 +167,7 @@ export function Hero() {
                 <Mail className="h-3.5 w-3.5" /> Contact Me
               </MagneticButton>
             </div>
-            <MagneticButton href={resumeAsset.url} variant="accent" download="Ramananda_Chakraborty_CV.pdf" className="lg:ms-auto">
+            <MagneticButton href="/Ramananda_Chakraborty_CV.pdf" target="_blank" rel="noreferrer" variant="accent" className="lg:ms-auto">
               <Download className="h-3.5 w-3.5" /> Download Resume
             </MagneticButton>
           </motion.div>

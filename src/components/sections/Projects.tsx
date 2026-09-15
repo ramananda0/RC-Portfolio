@@ -157,9 +157,21 @@ export function Projects() {
                     <ExternalLink className="h-3 w-3" /> Open Live Demo
                   </MagneticButton>
                 )}
-                <span className="inline-flex items-center gap-2 px-3 py-2.5 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground/60">
-                  {active.repo ? "" : "Repository unavailable"}
-                </span>
+                {active.repo ? (
+                  <MagneticButton
+                    href={active.repo}
+                    target="_blank"
+                    rel="noreferrer"
+                    variant="ghost"
+                    className="px-4 py-2.5 text-[10px]"
+                  >
+                    <Github className="h-3 w-3" /> View Repository
+                  </MagneticButton>
+                ) : (
+                  <span className="inline-flex items-center gap-2 px-3 py-2.5 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground/60">
+                    <Github className="h-3 w-3" /> Repository unavailable
+                  </span>
+                )}
               </div>
             </motion.div>
           </motion.div>

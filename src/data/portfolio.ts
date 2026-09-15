@@ -86,6 +86,7 @@ export const PROJECTS: Project[] = [
     description:
       "A premium-styled calculator interface focused on clean layout, precise interaction states and a polished visual finish.",
     demo: "https://luxarycalculator.netlify.app/",
+    repo: "https://github.com/ramananda0/Calculator",
   },
   {
     index: "02",
@@ -94,6 +95,7 @@ export const PROJECTS: Project[] = [
     description:
       "Currency conversion tool powered by live exchange-rate data with a fast, simple conversion flow.",
     demo: "https://globalcurrencyconvert.netlify.app/",
+    repo: "https://github.com/ramananda0/Global-currency-converter",
   },
   {
     index: "03",
@@ -102,6 +104,7 @@ export const PROJECTS: Project[] = [
     description:
       "Weather lookup application presenting current conditions for a searched location in a compact dashboard.",
     demo: "https://weatherdefiner.netlify.app/",
+    repo: "https://github.com/ramananda0/Weather-app",
   },
   {
     index: "04",
@@ -109,6 +112,7 @@ export const PROJECTS: Project[] = [
     stack: ["HTML", "CSS"],
     description:
       "Front-end recreation of a streaming platform landing experience, built to practice responsive layout and component structure.",
+    repo: "https://github.com/ramananda0/Netflix-Clone",
   },
   {
     index: "05",
@@ -116,6 +120,7 @@ export const PROJECTS: Project[] = [
     stack: ["HTML", "CSS", "JavaScript"],
     description:
       "E-commerce interface clone focused on grid layouts, navigation structure and responsive product presentation.",
+    repo: "https://github.com/ramananda0/Amazon-clone",
   },
 ];
 
@@ -217,16 +222,6 @@ export const EDUCATION = [
   },
 ];
 
-import bitm from "@/assets/certs/bitm.jpg.asset.json";
-import icip from "@/assets/certs/icip.png.asset.json";
-import reactNative from "@/assets/certs/react-native.png.asset.json";
-import python365 from "@/assets/certs/python.pdf.asset.json";
-import sql365 from "@/assets/certs/sql.pdf.asset.json";
-import agile from "@/assets/certs/agile.pdf.asset.json";
-import leadership from "@/assets/certs/leadership.pdf.asset.json";
-import cyberBadge from "@/assets/certs/cyber-badge.pdf.asset.json";
-import cyberCourse from "@/assets/certs/cyber-course.pdf.asset.json";
-
 export type Certification = {
   title: string;
   issuer: string;
@@ -241,22 +236,21 @@ export const CERTIFICATIONS: Certification[] = [
     title: "Data Science & Machine Learning using Python",
     issuer: "BITM — BASIS Institute of Technology & Management",
     date: "Dec 2025 — Feb 2026 · 66 Hours",
-    file: bitm.url,
+    file: "/certificates/bitm-data-science.jpg",
     kind: "image",
   },
   {
     title: "React Native",
     issuer: "Meta — via Coursera",
     date: "Nov 2024",
-    file: reactNative.url,
+    file: "/certificates/react-native.png",
     kind: "image",
-    credential: "https://coursera.org/verify/CY7LUYZ1MYU2",
   },
   {
     title: "Introduction to Critical Infrastructure Protection",
     issuer: "OPSWAT Academy",
     date: "Jun 2025",
-    file: icip.url,
+    file: "/certificates/opswat-icip.png",
     kind: "image",
     credential: "https://learn.opswatacademy.com/certificate/5ym3LHnfhQ",
   },
@@ -264,44 +258,44 @@ export const CERTIFICATIONS: Certification[] = [
     title: "Introduction to Python",
     issuer: "365 Data Science",
     date: "Mar 2026",
-    file: python365.url,
+    file: "/certificates/intro-to-python-365.pdf",
     kind: "pdf",
   },
   {
     title: "SQL",
     issuer: "365 Data Science",
     date: "Mar 2026",
-    file: sql365.url,
+    file: "/certificates/sql-365-data-science.pdf",
     kind: "pdf",
   },
   {
     title: "Introduction to Cybersecurity",
     issuer: "Cisco Networking Academy",
     date: "Nov 2025",
-    file: cyberBadge.url,
-    kind: "pdf",
-  },
-  {
-    title: "Cybersecurity — Course Completion",
-    issuer: "Cisco Networking Academy",
-    date: "Nov 2025",
-    file: cyberCourse.url,
+    file: "/certificates/cisco-intro-cybersecurity.pdf",
     kind: "pdf",
   },
   {
     title: "Agile Project Management",
     issuer: "HP LIFE — HP Foundation",
     date: "Sep 2025",
-    file: agile.url,
+    file: "/certificates/agile-project-management.pdf",
     kind: "pdf",
   },
   {
     title: "Effective Leadership",
     issuer: "HP LIFE — HP Foundation",
     date: "Jun 2025",
-    file: leadership.url,
+    file: "/certificates/effective-leadership.pdf",
     kind: "pdf",
   },
+  {
+  title: "Intro Of Ai",
+  issuer: "365 Data Science",
+  date: "November 2025",
+  file: "/certificates/intro-of-ai.pdf",
+  kind: "pdf",
+}
 ];
 
 

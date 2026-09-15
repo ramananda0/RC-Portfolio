@@ -75,10 +75,12 @@ export function TiltCard({
   children,
   className,
   intensity = 8,
+  onClick,
 }: {
   children: ReactNode;
   className?: string;
   intensity?: number;
+  onClick?: () => void;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
@@ -105,6 +107,7 @@ export function TiltCard({
       ref={ref}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
+      onClick={onClick}
       className={cn(
         "glass-panel group relative min-w-0 overflow-hidden transition-[transform,box-shadow] duration-300 ease-out will-change-transform hover:shadow-[0_0_50px_-15px_var(--neon)]",
         className,

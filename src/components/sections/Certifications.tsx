@@ -5,6 +5,12 @@ import { Reveal, Section, TiltCard } from "@/components/fx/primitives";
 
 export function Certifications() {
   const [active, setActive] = useState<Certification | null>(null);
+  const [previewError, setPreviewError] = useState(false);
+
+  const openPreview = (certification: Certification) => {
+    setPreviewError(false);
+    setActive(certification);
+  };
 
   return (
     <Section
@@ -20,7 +26,11 @@ export function Certifications() {
       <div className="grid gap-6 lg:grid-cols-3">
         {CERTIFICATIONS.map((c, i) => (
           <Reveal key={c.title} delay={i * 0.06}>
-            <TiltCard className="h-full p-4 sm:p-6" intensity={9}>
+            <TiltCard
+              className="h-full cursor-pointer p-4 sm:p-6"
+              intensity={9}
+              onClick={() => openPreview(c)}
+            >
               <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-2">
                 <span className="flex h-11 w-11 items-center justify-center rounded-lg border border-plasma/30 bg-plasma/10 text-plasma shadow-[var(--glow-plasma)]">
                   <Award className="h-5 w-5" />
@@ -31,7 +41,7 @@ export function Certifications() {
               </div>
               <button
                 type="button"
-                onClick={() => setActive(c)}
+                onClick={() => openPreview(c)}
                 className="mt-4 block w-full text-left text-base font-semibold uppercase tracking-wider transition-colors hover:text-cyan"
               >
                 {c.title}
@@ -41,7 +51,7 @@ export function Certifications() {
               <div className="mt-4 flex flex-wrap items-center gap-4">
                 <button
                   type="button"
-                  onClick={() => setActive(c)}
+                  onClick={() => openPreview(c)}
                   className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-cyan hover:underline"
                 >
                   <Eye className="h-3 w-3" /> Preview
@@ -92,18 +102,31 @@ export function Certifications() {
             </div>
 
             <div className="mt-4 min-h-0 flex-1 overflow-auto rounded-lg border border-border bg-surface/40">
-              {active.kind === "image" ? (
+              {previewError ? (
+                <div className="flex min-h-[18rem] flex-col items-center justify-center px-6 text-center">
+                  <Award className="h-8 w-8 text-plasma" />
+                  <p className="mt-4 font-mono text-xs uppercase tracking-[0.16em] text-cyan">
+                    Certificate file unavailable
+                  </p>
+                  <p className="mt-2 max-w-md text-sm leading-relaxed text-muted-foreground">
+                    Add the original certificate file to the project&apos;s public/certificates folder
+                    to preview it locally.
+                  </p>
+                </div>
+              ) : active.kind === "image" ? (
                 <img
                   src={active.file}
                   alt={`${active.title} certificate issued by ${active.issuer}`}
                   className="h-auto w-full"
                   loading="lazy"
+                  onError={() => setPreviewError(true)}
                 />
               ) : (
                 <iframe
                   src={active.file}
                   title={`${active.title} certificate`}
                   className="h-[70vh] w-full"
+                  onError={() => setPreviewError(true)}
                 />
               )}
             </div>
