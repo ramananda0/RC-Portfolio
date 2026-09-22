@@ -54,7 +54,6 @@ A single-page, server-rendered portfolio that presents the owner as a "system pr
 | **Animation** | [Framer Motion](https://www.framer.com/motion/) |
 | **Icons** | [Lucide](https://lucide.dev/) |
 | **Deployment** | [Netlify](https://www.netlify.com/) |
-| **Origin** | Generated with [Lovable](https://lovable.dev) |
 
 ---
 
