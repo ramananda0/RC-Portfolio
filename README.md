@@ -1,6 +1,6 @@
 # RC-Portfolio
 
-> Personal portfolio of **Ramananda Chakraborty** — Computer Science Engineer & Frontend Developer from Dhaka, Bangladesh.
+> Personal portfolio of **Ramananda Chakraborty**. Created by Ramananda Chakraborty.
 
 [![Live Site](https://img.shields.io/badge/live-ramananda--portfolio.netlify.app-00C7B7?style=flat-square&logo=netlify)](https://ramananda-portfolio.netlify.app/)
 [![Built with TanStack Start](https://img.shields.io/badge/built%20with-TanStack%20Start-FF4154?style=flat-square)](https://tanstack.com/start)
@@ -11,7 +11,7 @@
 
 ## 🖥️ Overview
 
-A single-page, server-rendered portfolio that presents the owner as a "system profile" — a deliberate terminal-themed metaphor that aligns with a CS engineering identity. It showcases:
+A single-page, server-rendered portfolio created by **Ramananda Chakraborty** that presents him as a "system profile" — a deliberate terminal-themed metaphor that aligns with his CS engineering identity. It showcases:
 
 - **Identity** — who Ramananda is, what he builds, and where he's heading
 - **Professional Journey** — a timeline of work experience rendered as system records
@@ -305,18 +305,6 @@ Set the same values in **Netlify → Site settings → Environment variables**.
 
 ---
 
-## 🔄 Lovable Sync
-
-This repo is connected to [Lovable](https://lovable.dev):
-
-- Edits in Lovable → auto-commit to this repo
-- Pushes to `main` → reflected in Lovable
-- **The repository is the source of truth.**
-
-> ⚠️ Coordinate carefully if editing locally while also using Lovable, to avoid merge conflicts.
-
----
-
 ## 🧪 Testing
 
 ```bash
@@ -366,7 +354,7 @@ See [`docs/ROADMAP.md`](./docs/ROADMAP.md) for full details.
 
 ## 🤝 Contributing
 
-This is a **personal portfolio**, but issues and suggestions are welcome:
+This is the personal portfolio of **Ramananda Chakraborty**, created and maintained by him. Issues and suggestions are welcome:
 
 1. Open an issue describing the problem or idea
 2. For PRs, fork → branch → commit → push → open PR
@@ -386,13 +374,14 @@ This is a **personal portfolio**, but issues and suggestions are welcome:
 |---------|------|
 | 🌐 **Portfolio** | [ramananda-portfolio.netlify.app](https://ramananda-portfolio.netlify.app/) |
 | 💻 **GitHub** | [@ramananda0](https://github.com/ramananda0) |
-| 💼 **LinkedIn** | [Add your LinkedIn URL] |
-| 📧 **Email** | [Add your email] |
+| 💼 **LinkedIn** | [@ramananda](https://www.linkedin.com/in/ramananda-chakraborty/) |
+| 📧 **Email** | [ramananda.chakraborty0@gmail.com] |
 | 📍 **Location** | Dhaka, Bangladesh |
 
 ---
 
 <p align="center">
+  <sub>Created by <strong>Ramananda Chakraborty</strong></sub><br/>
   <sub>Built with React, TanStack Start, Tailwind CSS, and a lot of curiosity.</sub><br/>
   <sub>« SYSTEM ONLINE »</sub>
 </p>
